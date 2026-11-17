@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#294d3e">
+<title>พักแป๊บ · เวลาของคุณ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="leaf" viewBox="0 0 24 24"><path d="M19 4C8 2 3 7 6 14c6 5 15 0 13-10Z"/><path d="M4 21 15 10M9 15v-5m0 5h5"/></symbol>
+<symbol id="rain" viewBox="0 0 24 24"><path d="M6 14a4 4 0 0 1-1-8 6 6 0 0 1 11-1 4.5 4.5 0 0 1 2 9H6ZM8 17l-1 3m6-3-1 3m6-3-1 3"/></symbol>
+<symbol id="tree" viewBox="0 0 24 24"><path d="m12 2-6 8h3l-5 7h7v5h2v-5h7l-5-7h3Z"/></symbol>
+<symbol id="icon-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></symbol>
+<symbol id="play" viewBox="0 0 24 24"><path d="m9 5 10 7-10 7Z"/></symbol>
+<symbol id="pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+<symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+</defs></svg>
+<div class="app">
+<header class="topbar"><a class="brand" href="./" aria-label="พักแป๊บ หน้าหลัก"><span class="brand-icon"><svg><use href="#leaf"/></svg></span>พักแป๊บ<span class="brand-note">a little space for yourself</span></a><time id="date"></time></header>
+<main>
+<div class="intro"><div><h1>ค่อย ๆ ทำ ทีละอย่าง</h1><p>วางเรื่องวุ่นไว้ข้างนอก แล้วให้เวลาตัวเองสักหน่อย</p></div><span class="welcome"><span></span>มุมนี้เป็นของคุณ</span></div>
+<div class="workspace">
+<section class="focus-panel" aria-label="นาฬิกาจับเวลาโฟกัส">
+<div class="scene">
+<svg viewBox="0 0 700 255" role="img" aria-label="มุมโต๊ะริมหน้าต่าง มีต้นไม้ กาแฟ และแสงแดดยามเช้า">
+<defs><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#dbe3cf"/><stop offset="1" stop-color="#e8e9d6"/></linearGradient><linearGradient id="light"><stop stop-color="#fcf2cd" stop-opacity=".65"/><stop offset="1" stop-color="#fcf2cd" stop-opacity="0"/></linearGradient></defs>
+<path fill="url(#wall)" d="M0 0h700v255H0z"/><path fill="#b6c8b1" d="M226 0h268v181H226z"/><path fill="#edf0db" d="M236 0h248v170H236z"/>
+<path fill="#b1c2a6" d="M236 110q48-55 94-27t77-13 77 23v77H236z"/><path fill="#91ac91" d="M236 139q64-54 133-13t115-10v54H236z"/>
+<circle cx="411" cy="43" r="25" fill="#faf0c6"/><path stroke="#f7f5e4" stroke-width="9" d="M358 0v173M231 80h258"/><path fill="#f5f0dc" d="M215 169h288v13H215z"/>
+<path fill="url(#light)" d="m240 181 240 0 192 74H328z"/>
+<path fill="#667e60" d="M0 210h700v45H0z"/><path fill="#b79b72" d="M0 211h700v12H0z"/><path fill="#d1b88c" d="M0 204h700v12H0z"/>
+<path fill="#607e5c" d="M100 161C60 145 52 106 71 85c25 7 38 36 29 76Z"/><path fill="#728c63" d="M100 159c-6-43 18-70 43-65 7 27-12 55-43 65Z"/><path fill="#476e51" d="M99 162c-30-43-13-75 8-83 19 19 17 52-8 83Z"/><path fill="none" stroke="#3d6146" stroke-width="3" d="M100 178v-58"/><path fill="#ca8f6f" d="M72 160h57l-8 43H81z"/><path fill="#deb294" d="M68 157h65v9H68z"/>
+<path fill="#f4edda" d="m280 197 92-12 50 17-92 10z"/><path fill="#c9c3a8" d="m330 212 92-10v3l-92 10-50-15v-3z"/><path stroke="#a9b19b" stroke-width="2" d="m306 197 57-7m-45 12 57-7"/>
+<ellipse fill="#a28b64" cx="466" cy="205" rx="37" ry="6"/><path fill="none" stroke="#f3ecda" stroke-width="7" d="M484 180c26-5 22 20 1 17"/><path fill="#f3ecda" d="M445 174h43v24q-22 18-43 0z"/><ellipse fill="#c0ae87" cx="466" cy="175" rx="21" ry="5"/><ellipse fill="#785d42" cx="466" cy="176" rx="17" ry="3"/>
+<path fill="none" stroke="#f7f2de" stroke-linecap="round" stroke-width="2" opacity=".7" d="M460 163q-6-8 1-14t0-13m12 25q-6-8 1-14"/>
+<path fill="#355e44" d="M605 154c-50-3-60-40-46-58 32 3 49 25 46 58Z"/><path fill="#577c50" d="M605 171c3-47 29-67 52-56-2 31-22 54-52 56Z"/><path fill="#799463" d="M604 125c-24-32-17-62 6-71 19 22 16 49-6 71Z"/><path fill="none" stroke="#476c48" stroke-width="4" d="M605 192V103"/><path fill="#e3dbbc" d="M577 175h55l-7 29h-41z"/>
+</svg><span class="scene-caption">เสียงเบาลง ใจช้าลง</span>
+</div>
+<div class="timer-area">
+<div class="modes" role="group" aria-label="เลือกรูปแบบเวลา"><button class="mode active" data-mode="focus" aria-pressed="true">โฟกัส</button><button class="mode" data-mode="short" aria-pressed="false">พักสั้น</button><button class="mode" data-mode="long" aria-pressed="false">พักยาว</button></div>
+<div class="timer" id="timer" role="timer" aria-label="เวลาที่เหลือ">25:00</div>
+<p class="timer-message" id="timer-message">ไม่ต้องรีบ แค่เริ่มก็เก่งแล้ว</p>
+<div class="timer-actions"><button class="start" id="start"><svg><use href="#play"/></svg><span>เริ่มโฟกัส</span></button><button class="reset" id="reset" aria-label="เริ่มเวลาใหม่"><svg><use href="#icon-reset"/></svg></button></div>
+<div class="timer-bottom"><span class="session-leaf"><svg><use href="#leaf"/></svg></span><span id="session-note">หนึ่งช่วงเวลาเล็ก ๆ เพื่อตัวเอง</span></div>
+</div>
+</section>
+<aside class="side">
+<section class="sound-panel"><div class="section-title"><h2>บรรยากาศที่ชอบ</h2><span class="small-label">เปิดเสียงได้เลย</span></div><p class="section-description">เลือกเสียงที่ทำให้คุณอยู่กับตอนนี้</p>
+<div class="sound-row"><button class="sound-toggle" data-sound="rain" aria-pressed="false" aria-label="เปิดเสียงฝน"><svg><use href="#rain"/></svg></button><div class="sound-content"><div class="sound-label"><label for="rain-volume">ฝนข้างหน้าต่าง</label><span id="rain-state">ปิดอยู่</span></div><input id="rain-volume" type="range" min="0" max="100" value="40" aria-label="ความดังเสียงฝน"></div></div>
+<div class="sound-row"><button class="sound-toggle" data-sound="forest" aria-pressed="false" aria-label="เปิดเสียงลมในป่า"><svg><use href="#tree"/></svg></button><div class="sound-content"><div class="sound-label"><label for="forest-volume">ลมในป่า</label><span id="forest-state">ปิดอยู่</span></div><input id="forest-volume" type="range" min="0" max="100" value="35" aria-label="ความดังเสียงลมในป่า"></div></div>
+<p class="sound-footnote">เสียงสังเคราะห์ เล่นจากอุปกรณ์ของคุณ</p></section>
+<section class="tasks-panel"><div class="section-title"><h2>วันนี้ อยากทำอะไร</h2><span id="task-count" class="task-count">0/0</span></div><p class="section-description">เรื่องเล็ก ๆ ก็นับเหมือนกันนะ</p><ul id="tasks" class="tasks"></ul><p class="empty" id="empty">ยังไม่มีรายการ<br><span>เริ่มจากสิ่งเล็ก ๆ สักอย่างก็พอ</span></p><form id="task-form"><label class="sr-only" for="task-input">สิ่งที่อยากทำ</label><input id="task-input" placeholder="เพิ่มสิ่งที่อยากทำ…" maxlength="140" required autocomplete="off"><button type="submit" aria-label="เพิ่มรายการ"><svg><use href="#plus"/></svg></button></form><p class="storage-note" id="storage-note">เก็บรายการไว้ในเบราว์เซอร์นี้เท่านั้น</p></section>
+</aside>
+</div>
+<div class="closing"><svg><use href="#leaf"/></svg><p>ไม่จำเป็นต้องทำทุกอย่างให้เสร็จในวันเดียว</p><span>แค่มีเวลาให้ตัวเองบ้างก็พอ</span></div>
+</main>
+<footer><span>พักแป๊บ <span class="footer-dot">·</span> made for your slow moments</span><button id="breath">ลองหายใจลึก ๆ สักครั้ง <span aria-hidden="true">↗</span></button></footer>
+</div><div id="notification" class="notification" role="status" aria-live="polite"></div>
+<dialog id="breath-dialog"><button id="close-breath" class="close-dialog" aria-label="ปิดแบบฝึกหายใจ"><svg><use href="#close"/></svg></button><h2>พักตรงนี้สักครู่</h2><div class="breathing-circle"><svg><use href="#leaf"/></svg></div><p id="breath-instruction" aria-live="polite">หายใจเข้า…</p><p class="breath-note">หายใจช้า ๆ ตามจังหวะที่สบายสำหรับคุณ</p></dialog>
+</body>
+</html>

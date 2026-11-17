@@ -1,0 +1,15 @@
+{
+  "name": "พักแป๊บ",
+  "mode": "operate",
+  "tokens": {
+    "colors": { "background": "#f3f4ed", "paper": "#fffefa", "ink": "#294437", "muted": "#647265", "action": "#365e48", "soft": "#e8eddf", "border": "#dce1d4", "focus": "#9b673b" },
+    "fontFamily": ["Noto Sans Thai", "Tahoma", "sans-serif"],
+    "fontSizes": [12, 13, 14, 17, 23, 25, 28, 32, 82, 90, 94],
+    "spacing": [4, 8, 12, 16, 20, 24, 32, 40, 48],
+    "panelRadius": 20,
+    "maxWidth": 1200,
+    "mobileBreakpoint": 640
+  },
+  "components": ["header", "focus timer", "mode buttons", "ambient sound sliders", "task list", "breathing dialog", "status notification"],
+  "assets": "Original inline SVG; no raster assets"
+}

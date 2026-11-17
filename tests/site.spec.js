@@ -1,0 +1,63 @@
+const { test, expect } = require('@playwright/test');
+const { pathToFileURL } = require('node:url');
+const path = require('node:path');
+const fs = require('node:fs');
+const root = path.resolve(__dirname, '..');
+const url = pathToFileURL(path.join(root, 'index.html')).href;
+
+test('timer, tasks, ambience and breathing work', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.clock.install();
+  await page.goto(url);
+  await expect(page.locator('#timer')).toHaveText('25:00');
+  await page.locator('#start').click();
+  await page.clock.fastForward(2000);
+  await expect(page.locator('#timer')).toHaveText('24:58');
+  await page.locator('#start').click();
+  await page.clock.fastForward(3000);
+  await expect(page.locator('#timer')).toHaveText('24:58');
+  await page.locator('#reset').click();
+  await expect(page.locator('#timer')).toHaveText('25:00');
+  await page.getByRole('button', { name: 'พักสั้น', exact: true }).click();
+  await expect(page.locator('#timer')).toHaveText('05:00');
+  await page.locator('#start').click();
+  await page.clock.fastForward(300000);
+  await expect(page.locator('#notification')).toContainText('ครบเวลา');
+  await expect(page.locator('#start span')).toHaveText('เริ่มพัก');
+  await page.locator('#task-input').fill('เขียนไอเดียแรก');
+  await page.getByRole('button', { name: 'เพิ่มรายการ', exact: true }).click();
+  await expect(page.locator('#tasks li')).toHaveCount(1);
+  await page.getByRole('checkbox').focus();
+  await page.keyboard.press('Space');
+  await expect(page.getByRole('checkbox')).toBeFocused();
+  await expect(page.locator('#task-count')).toHaveText('1/1');
+  await page.reload();
+  await expect(page.getByRole('checkbox')).toBeChecked();
+  await page.locator('.delete-task').click();
+  await expect(page.locator('#empty')).toBeVisible();
+  await page.locator('[data-sound="rain"]').click();
+  await expect(page.locator('[data-sound="rain"]')).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('[data-sound="forest"]').click();
+  await expect(page.locator('[data-sound="forest"]')).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('[data-sound="rain"]').click();
+  await expect(page.locator('[data-sound="rain"]')).toHaveAttribute('aria-pressed', 'false');
+  await page.locator('#breath').click();
+  await expect(page.locator('dialog')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('dialog')).not.toBeVisible();
+  expect(errors).toEqual([]);
+});
+for (const width of [1280, 390, 320]) {
+  test(`layout at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 950 });
+    await page.goto(url);
+    await page.evaluate(() => document.fonts.ready);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await expect(page.locator('#start')).toBeVisible();
+    await page.locator('#task-input').fill('ลองทำสิ่งเล็ก ๆ ที่ตั้งใจไว้วันนี้ให้สำเร็จ');
+    await page.getByRole('button', { name: 'เพิ่มรายการ', exact: true }).click();
+    await page.screenshot({ path: path.join(root, '.impeccable', 'review', `${width === 1280 ? 'desktop' : width === 390 ? 'mobile' : 'small-mobile'}.png`), fullPage: true });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  });
+}
